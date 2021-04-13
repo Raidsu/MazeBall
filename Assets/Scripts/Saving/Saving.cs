@@ -9,8 +9,8 @@ namespace Items
         public string Name;
         public SerializeVector3 Vector3Position;
         public bool IsEnabled;
-        public string[] liftableObjectsTag = new string[ItemStarter.Data1.Bad.numOfObjectsOnScene+ItemStarter.Data1.Required.numOfObjectsOnScene];
-        public SerializeVector3[] liftableObjectsPosition=new SerializeVector3[ItemStarter.Data1.Bad.numOfObjectsOnScene+ItemStarter.Data1.Required.numOfObjectsOnScene];
+        public string[] liftableObjectsTag; 
+        public SerializeVector3[] liftableObjectsPosition;
         
         public override string ToString() => $"Name: \"{Name}\" Position: {Vector3Position} IsVisible: {IsEnabled}\n{PrintLiftableObjectsData()}";
 
@@ -32,6 +32,8 @@ namespace Items
         {
             var badItems=GameObject.FindGameObjectsWithTag("BadItems");
             var requiredItems=GameObject.FindGameObjectsWithTag("RequiredItems");
+            liftableObjectsTag = new string[badItems.Length+requiredItems.Length];
+            liftableObjectsPosition = new SerializeVector3[badItems.Length+requiredItems.Length];
             
             for (var i = 0; i < badItems.Length; i++)
             {
