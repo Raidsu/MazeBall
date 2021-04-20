@@ -17,27 +17,14 @@ namespace Items
         
         internal override void DoEffect()
         {
-            GetRandomEffect(Random.Range(0, 1));
+            MazeRotation.InvertInput();
             Effect?.Invoke();
         }
 
         private void StartCameraShake()
         {
-            ItemStarter.ShakeDuration = 1f;
+            CameraShake.ShakeDuration = 1f;
         }
         
-        private static void GetRandomEffect(int i)
-        {
-            switch (i)
-            {
-                case 0:
-                    MazeRotation.InvertInput();
-                    break;
-                case 1:
-                    MazeRotation.SetEffectMultiplier();
-                    break;
-                default: throw new IndexOutOfRangeException();
-            }
-        }
     }
 }

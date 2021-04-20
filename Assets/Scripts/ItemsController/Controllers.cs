@@ -10,11 +10,6 @@ namespace Items
         private readonly List<ILateUpdate> _lateControllers;
         private readonly List<IClean> _cleanControllers;
         
-       
-           
-            
-        
-
         internal Controllers()
         {
             _initControllers = new List<IInit>();
@@ -80,5 +75,6 @@ namespace Items
                 element.Clean();
             }
         }
+
     }
 }
