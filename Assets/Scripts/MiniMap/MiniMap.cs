@@ -1,29 +1,32 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
-public class MiniMap : MonoBehaviour
+namespace Items
 {
-    private Transform _player;
-    private Vector3 _offset= new Vector3(0f,5f,0f);
-
-    private void Start()
+    public class MiniMap : ILateUpdate
     {
-        _player = GameObject.FindGameObjectWithTag("Player").transform;
-        transform.parent = null;
-        transform.rotation=Quaternion.Euler(90f,0f,0f);
-        transform.position = _player.position + _offset;
+        private Transform _player;
+        private Transform _camera;
+        private readonly Vector3 _offset= new Vector3(0f,5f,0f);
 
-        var minimapTexture = Resources.Load<RenderTexture>("MiniMap/MiniMapTexture");
+        internal MiniMap(Transform miniMapCamera)
+        {
+            _camera = miniMapCamera;
+            _player = Object.FindObjectOfType<PlayerMarker>().transform;
+            _camera.parent = null;
+            _camera.rotation=Quaternion.Euler(90f,0f,0f);
+            _camera.position = _player.position + _offset;
 
-        GetComponent<Camera>().targetTexture = minimapTexture;
-    }
+            var minimapTexture = Resources.Load<RenderTexture>("MiniMap/MiniMapTexture");
 
-    private void LateUpdate()
-    {
-        var curentPlayerPosition = _player.position;
-        curentPlayerPosition.y = transform.position.y;
-        transform.position = curentPlayerPosition;
+            miniMapCamera.gameObject.GetComponent<Camera>().targetTexture = minimapTexture;
+        }
+
+        public void LateExecute(float deltaTime)
+        {
+            var curentPlayerPosition = _player.position;
+            curentPlayerPosition.y = _camera.position.y;
+            _camera.position = curentPlayerPosition;
+        }
     }
 }

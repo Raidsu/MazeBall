@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: RequiredItem
   m_EditorClassIdentifier: 
   prefab: {fileID: 3669804184573523997, guid: 76737e16a8ed0ea479491fcfe29bf605, type: 3}
-  tag: RequiredItems
+  tag: RequiredItemsMarker
   numOfObjectsOnScene: 3
-  rangeFromCenterOfMaze: 6
+  rangeFromCenterOfMaze: 8
