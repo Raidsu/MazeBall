@@ -22,6 +22,7 @@ namespace Items
             for (var i=0;i< liftableObjectsTag.Length;i++)
             {
                 textToReturn += $"Name: \"{liftableObjectsTag[i]}\" Position: {liftableObjectsPosition[i]}\n";
+                
             }
 
             textToReturn += $"Total objects that can be raised: {liftableObjectsTag.Length}";
@@ -53,9 +54,7 @@ namespace Items
             {
                 liftableObjectsPosition[i] = requiredItems[i-badItems.Length].transform.position;
             }
-            
         }
-        
     }
 
 
