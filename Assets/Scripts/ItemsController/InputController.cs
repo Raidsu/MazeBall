@@ -7,10 +7,10 @@ namespace Items
     {
         private readonly SaveDataRepository _saveDataRepository;
         private GameObject _player;
-        public InputController(GameObject player)
+        public InputController()
         {
             _saveDataRepository = new SaveDataRepository();
-            _player = player;
+            _player =Object.FindObjectOfType<PlayerMarker>().gameObject;
             
         }
 

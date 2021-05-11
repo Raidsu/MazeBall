@@ -22,14 +22,14 @@ namespace Items
             for (var i = 0; i < _requiredItemsData.numOfObjectsOnScene;i++)
             {
                 var item = Object.Instantiate(_requiredItemsData.prefab, Vector3.zero, Quaternion.identity).transform;
-                item.SetParent(GameObject.FindGameObjectWithTag("Maze").transform);
+                item.SetParent(Object.FindObjectOfType<MazeMarker>().transform);
                 
                 CreatedItems.Add(item,_requiredItemsData.tag);
             }
             for (var i = 0; i < _badItemsData.numOfObjectsOnScene;i++)
             {
                 var item = Object.Instantiate(_badItemsData.prefab, Vector3.zero, Quaternion.identity).transform;
-                item.SetParent(GameObject.FindGameObjectWithTag("Maze").transform);
+                item.SetParent(Object.FindObjectOfType<MazeMarker>().transform);
                 
                 CreatedItems.Add(item,_badItemsData.tag);
             }

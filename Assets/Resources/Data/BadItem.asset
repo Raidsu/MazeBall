@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BadItem
   m_EditorClassIdentifier: 
   prefab: {fileID: 5260324393707944943, guid: f91a123201d8a4b42af11ae0742fae87, type: 3}
-  tag: BadItems
+  tag: BadItemsMarker
   numOfObjectsOnScene: 8
-  rangeFromCenterOfMaze: 10
+  rangeFromCenterOfMaze: 9
